@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/substrate_rpc.iml" filepath="$PROJECT_DIR$/substrate_rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/substrate_rpc_android.iml" filepath="$PROJECT_DIR$/android/substrate_rpc_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/substrate_rpc_example_android.iml" filepath="$PROJECT_DIR$/example/android/substrate_rpc_example_android.iml" />
+    </modules>
+  </component>
+</project>
