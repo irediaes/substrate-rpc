@@ -1,5 +1,5 @@
 class JsonRpcObject {
-  int id;
+  int? id;
   String jsonrpc = '2.0';
   JsonRpcObject({this.id = 0, this.jsonrpc = '2.0'});
 
@@ -152,8 +152,7 @@ class JsonRpcResponse implements JsonRpcObject, JsonRpcResponseBase {
   JsonRpcResponseBaseError? error;
 
   @override
-  int id;
-
+  int? id;
   @override
   String jsonrpc;
 

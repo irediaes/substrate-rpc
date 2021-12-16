@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.substrate_rpc_example">
+    package="io.irediaes.substrate_rpc_example">
    <application
         android:label="substrate_rpc_example"
         android:icon="@mipmap/ic_launcher">
