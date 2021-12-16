@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:substrate_rpc/rpc_provider/types.dart';
-import 'package:substrate_rpc/rpc_provider/coder/utils.dart';
+import 'package:substrate_rpc/rpc_provider/coder/utils.dart' as utils;
 
 String formatErrorData([dynamic data]) {
   if (data == null) {
@@ -36,10 +36,10 @@ class RpcCoder {
         (response.params != null) && (response.method != null);
 
     assert(
-        isNumber(response.id) ||
+        utils.isNumber(response.id) ||
             (isSubscription &&
-                (isNumber(response.params["subscription"]) ||
-                    isString(response.params["subscription"]))),
+                (utils.isNumber(response.params["subscription"]) ||
+                    utils.isString(response.params["subscription"]))),
         'Invalid id field in decoded object');
 
     _checkError(response.error);

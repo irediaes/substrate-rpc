@@ -1,4 +1,4 @@
-package com.example.substrate_rpc
+package io.irediaes.substrate_rpc
 
 import androidx.annotation.NonNull
 

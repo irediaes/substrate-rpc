@@ -51,7 +51,7 @@ class WsProvider implements ProviderInterface {
 
   Map<String, JsonRpcResponse> _waitingForId = {};
 
-  late int _autoConnectMs;
+  int? _autoConnectMs;
 
   late int _endpointIndex;
 
@@ -290,7 +290,7 @@ class WsProvider implements ProviderInterface {
   }
 
   _onSocketClose() {
-    if (_autoConnectMs > 0) {
+    if (_autoConnectMs! > 0) {
       final code = _websocket!.closeCode;
       final reason = _websocket!.closeReason;
       print(
@@ -300,9 +300,9 @@ class WsProvider implements ProviderInterface {
     _isConnected = false;
     _emit(ProviderInterfaceEmitted.disconnected);
 
-    if (_autoConnectMs > 0) {
+    if (_autoConnectMs! > 0) {
       Future.delayed(
-          Duration(milliseconds: _autoConnectMs), () => connectWithRetry());
+          Duration(milliseconds: _autoConnectMs!), () => connectWithRetry());
     }
   }
 
@@ -364,7 +364,10 @@ class WsProvider implements ProviderInterface {
   }
 
   _onSocketMessageSubscribe(JsonRpcResponse? response) {
-    final method = ALIASSES[response!.method] ?? response.method ?? 'invalid';
+    var method = ALIASSES[response!.method] ?? response.method;
+    if (method.isEmpty) {
+      method = 'invalid';
+    }
     final subId = "$method::${response.params["subscription"]}";
     final handler = _subscriptions[subId];
 

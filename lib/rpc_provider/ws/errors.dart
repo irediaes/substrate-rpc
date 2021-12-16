@@ -30,10 +30,14 @@ String getUnmapped(int code) {
   return '(Unknown)';
 }
 
-String getWSErrorString(int code) {
+String? getWSErrorString(int code) {
   if (code >= 0 && code <= 999) {
     return '(Unused)';
   }
-
-  return known[code] ?? getUnmapped(code) ?? '(Unknown)';
+  var knownCode = known[code];
+  knownCode = knownCode ?? getUnmapped(code);
+  if (knownCode.isEmpty) {
+    knownCode = "(Uknown)";
+  }
+  return knownCode;
 }
